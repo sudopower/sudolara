@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+/*
+Route::get('/playground', function () {
+    return "<h1>Playground to experiment</h1>";
 });
+
+Route::get('/users/{id}/{name}',function($id,$name){
+    return 'This is user '.$id.' with name '.$name;
+});
+*/
+Route::get('/', 'PagesController@index');
+
+Route::get('/about', 'PagesController@about');
+
+Route::get('/services', 'PagesController@services');
