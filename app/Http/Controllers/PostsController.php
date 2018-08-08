@@ -14,8 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {   
-        $posts = Post::all();
-        $data = [
+        $posts = Post::orderBy('created_at','desc')->get();
+        $data = [ 
             'title' => "Posts",
             'posts' => $posts
         ];
@@ -51,7 +51,12 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        $data = [
+            'title' => 'Post No '.$id,
+            'post' => $post
+        ];
+        return view('posts.show')->with($data);
     }
 
     /**
