@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -10,10 +10,13 @@
     <body>
         @include('inc.navbar')
         @include('inc.banner')
-        
-                @yield('content')
+        @include('inc.messages')
+        @yield('content')
             
         </div>
-        
+        <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'article-ckeditor' );
+        </script>
     </body>
 </html>
