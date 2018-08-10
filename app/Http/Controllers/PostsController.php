@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {   
-        $posts = Post::orderBy('created_at','desc')->get();
+        $posts = Post::orderBy('created_at','asc')->get();
         $data = [ 
             'title' => "Posts",
             'posts' => $posts
@@ -48,6 +48,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->user_id =auth()->user()->id; 
         $post->save();
 
         return redirect('/posts')->with('success','Post Created');
